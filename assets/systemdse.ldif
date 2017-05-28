@@ -1,0 +1,7 @@
+dn: dc=system
+dc: system
+objectClass: top
+objectClass: organization
+objectClass: dcObject
+objectClass: extensibleObject
+o: system
