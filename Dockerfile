@@ -1,16 +1,16 @@
 FROM centos:7
 
-RUN yum install -y openldap-servers && \
+RUN yum install -y openldap-servers openldap-clients && \
     yum clean all
 
-ADD assets/systemdse.ldif /etc/openldap/systemdse.ldif
 ADD assets/entrypoint.sh /entrypoint.sh
 
 LABEL io.openshift.tags=ldap,openldap \
       io.k8s.description="OpenLdap directory server" \
       io.openshift.expose-services="5000:ldap"
 
-ENV ROOTDN_PASSWORD=secret
+ENV ROOTDN_PASSWORD=secret \
+    ROOTDSE=""
 
 USER ldap
 EXPOSE 5000
