@@ -1,7 +1,10 @@
 FROM centos:7
 
 RUN yum install -y openldap-servers openldap-clients && \
-    yum clean all
+    yum clean all && \
+    find /etc/openldap/slapd.d -exec chgrp ldap {} \; && \
+    find /etc/openldap/slapd.d -type d -exec chmod 770 {} \; && \
+    find /etc/openldap/slapd.d -type f -exec chmod 640 {} \;
 
 ADD assets/entrypoint.sh /entrypoint.sh
 
