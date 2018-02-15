@@ -1,4 +1,5 @@
-FROM centos:7
+ARG IMAGE=centos:7
+FROM ${IMAGE}
 
 RUN yum install -y openldap-servers openldap-clients && \
     yum clean all
