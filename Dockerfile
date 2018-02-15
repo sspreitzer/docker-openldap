@@ -1,4 +1,3 @@
-ARG IMAGE=centos:7
 FROM ${IMAGE}
 
 RUN yum install -y openldap-servers openldap-clients && \
