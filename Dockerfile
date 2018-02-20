@@ -1,4 +1,4 @@
-FROM centos:7
+FROM rhel7:latest
 
 RUN yum install -y openldap-servers openldap-clients && \
     yum clean all && \
