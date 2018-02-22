@@ -6,6 +6,7 @@ RUN yum install -y openldap-servers openldap-clients && \
     find /etc/openldap/slapd.d -type d -exec chmod 770 {} \; && \
     find /etc/openldap/slapd.d -type f -exec chmod 640 {} \;
 
+ADD assets/ldap.conf /etc/openldap/ldap.conf
 ADD assets/entrypoint.sh /entrypoint.sh
 
 LABEL io.openshift.tags=ldap,openldap \
